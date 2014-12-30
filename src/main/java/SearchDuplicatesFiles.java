@@ -3,9 +3,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -109,6 +107,12 @@ public class SearchDuplicatesFiles {
                 }
             }
         }
+//        Collections.sort(possibleDuplicatesFiles, new Comparator<File>() {
+//            @Override
+//            public int compare(File o1, File o2) {
+//                return o1.toString().compareTo( o2.toString());
+//            }
+//        });
         return possibleDuplicatesFiles;
     }
 
@@ -118,7 +122,6 @@ public class SearchDuplicatesFiles {
     //file.txt  - оригинал
     //file (1).txt -  дубликат, file - копия (1).txt - дубликат
     public boolean findByPattern(File file) {
-        //используем для задания шаблона регулярные выражения
         Pattern pattern = Pattern.compile("^(.+)((\\s-\\sкопия)|(\\s\\(\\d+\\)))(.*)$");
         Matcher matcher = pattern.matcher(file.getName());
         if (matcher.find()) {
