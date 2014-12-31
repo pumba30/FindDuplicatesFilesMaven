@@ -22,11 +22,11 @@ public class FindDuplicateFileDemo {
 
 
         ArrayList<File> possibleDuplFiles = searchDuplicatesFiles.getPossibleDuplicatesFiles(listFoundFiles);
-        System.out.println("Возможные дубликаты:\n");
+        System.out.println("\nВозможные дубликаты:");
         listToScreen(possibleDuplFiles);
 
 
-        System.out.println("\nВыделенные из списка дубликатов файлы дубликатов без повторения:");
+        System.out.println("\nВыделенные из списка дубликатов \nфайлы дубликатов без повторения:");
         HashMap<String, File> fileHashMap = searchDuplicatesFiles.getOriginFiles(possibleDuplFiles);
         for (Map.Entry entry : fileHashMap.entrySet()) {
             File file = (File) entry.getValue();

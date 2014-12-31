@@ -94,25 +94,19 @@ public class SearchDuplicatesFiles {
 
     //метод отсортирует в список возможные дубликаты файлов по имени
     public ArrayList getPossibleDuplicatesFiles(ArrayList<File> fileList) {
-        for (int j = 0; j < fileList.size(); j++) {
-            String nameFileCheck = fileList.get(j).getName();
-            for (int i = 0; i < fileList.size(); i++) {
-                String nameFileToCompare = fileList.get(i).getName();
-                if (j == i) {
+        for (int i = 0; i < fileList.size(); i++) {
+            String nameFileCheck = fileList.get(i).getName();
+            for (int j = 0; j < fileList.size(); j++) {
+                String nameFileToCompare = fileList.get(j).getName();
+                if (i == j) {
                     continue;
-                } else if (nameFileCheck.equals(nameFileToCompare)
-                        || findByPattern(fileList.get(j)) == true) {
-                    possibleDuplicatesFiles.add(fileList.get(j));
+                }  if (nameFileCheck.equals(nameFileToCompare)
+                        || findByPattern(fileList.get(i)) == true) {
+                    possibleDuplicatesFiles.add(fileList.get(i));
                     break;
                 }
             }
         }
-//        Collections.sort(possibleDuplicatesFiles, new Comparator<File>() {
-//            @Override
-//            public int compare(File o1, File o2) {
-//                return o1.toString().compareTo( o2.toString());
-//            }
-//        });
         return possibleDuplicatesFiles;
     }
 
@@ -136,20 +130,15 @@ public class SearchDuplicatesFiles {
         for (File file : files) {
             if (!originFiles.containsKey(file.getName())) {
 
-
                 originFiles.put(file.getName(), file);
-
-
             }
         }
-
-
         return originFiles;
     }
 
 
     //метод для удаления файлов
-    //@param listFiles список файлов которые удаляем
+    //@param fileList список файлов которые удаляем
     public void removeFiles(HashMap<String, File> fileList) {
         for (Map.Entry entry : fileList.entrySet()) {
             File file = (File) entry.getValue();
@@ -157,6 +146,14 @@ public class SearchDuplicatesFiles {
             System.out.println(file + "  - deleted...");
         }
     }
+
+    //метод для сравнения по размеру
+    public boolean compareByLength(File file1, File file2){
+
+
+        return false;
+    }
+
 
 
 }
