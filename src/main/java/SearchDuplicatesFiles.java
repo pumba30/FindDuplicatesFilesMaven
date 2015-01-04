@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 /**
  * Created by pumba30 on 27.12.2014.
  */
-public class SearchDuplicatesFiles {
+public class SearchDuplicatesFiles implements Comparator<File> {
 
     //оригинальный файл как ключ, список  хранит список дубликатов файлов
 
@@ -148,12 +148,9 @@ public class SearchDuplicatesFiles {
     }
 
     //метод для сравнения по размеру
-    public boolean compareByLength(File file1, File file2){
 
-
-        return false;
+    @Override
+    public int compare(File o1, File o2) {
+        return 0;
     }
-
-
-
 }

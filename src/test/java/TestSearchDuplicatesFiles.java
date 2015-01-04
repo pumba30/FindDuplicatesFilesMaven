@@ -11,6 +11,12 @@ import java.security.NoSuchAlgorithmException;
 public class TestSearchDuplicatesFiles {
     public SearchDuplicatesFiles searchDuplicatesFiles = null;
 
+    @Before
+    public void setup() {
+        searchDuplicatesFiles = new SearchDuplicatesFiles("c:/testing");
+    }
+
+
     @Test
     public void testingGetSHA1CheckSum() throws IOException, NoSuchAlgorithmException {
         File file = new File("C:/testing/panda.txt");
@@ -19,10 +25,7 @@ public class TestSearchDuplicatesFiles {
         System.out.println(s);
     }
 
-    @Before
-    public void setup() {
-        searchDuplicatesFiles = new SearchDuplicatesFiles("c:/testing");
-    }
+
 
 
 }

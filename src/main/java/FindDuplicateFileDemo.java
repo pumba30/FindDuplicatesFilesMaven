@@ -13,6 +13,8 @@ public class FindDuplicateFileDemo {
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
 
 
+
+
         SearchDuplicatesFiles searchDuplicatesFiles = new SearchDuplicatesFiles("c:/testing");
         ArrayList<File> listFoundFiles = searchDuplicatesFiles.getFilesInDirectory();
 
@@ -37,6 +39,7 @@ public class FindDuplicateFileDemo {
 
 
         // searchDuplicatesFiles.removeFiles(fileHashMap);
+
 
 
     }
